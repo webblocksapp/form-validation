@@ -103,24 +103,47 @@ const validationsSchema = {
 
 const errors = {};
 
-const setFieldValue = (event) => {
-  const { name, value } = event.target;
-  person[name] = value;
-
+/**
+ * Valida un campo específico del formulario.
+ */
+const validateField = ({ name, value, element }) => {
   for (let validator of validationsSchema[name]) {
     try {
       validator(value);
-      cleanErrorMessage(event.target, true);
+      cleanErrorMessage(element, true);
       errors[name] = { message: "", isInvalid: false };
     } catch (error) {
-      printFieldErrorMessage(event.target, error);
+      printFieldErrorMessage(element, error);
       errors[name] = { message: error, isInvalid: true };
       break;
     } finally {
       submitButton.disabled = isFormInvalid();
-      console.log(errors);
     }
   }
+};
+
+/**
+ * Función que valida todos los campos del formulario.
+ */
+const validate = () => {
+  for (let field of fields) {
+    validateField({ name: field.name, value: field.value, element: field });
+  }
+
+  for (let key in errors) {
+    if (errors[key].isInvalid) {
+      throw "El formulario contiene errores.";
+    }
+  }
+};
+
+/**
+ * Se asigna el valor de un campo del formulario a una entidad específica que es person.
+ */
+const setFieldValue = (event) => {
+  const { name, value } = event.target;
+  person[name] = value;
+  validateField({ name, value, element: event.target });
 };
 
 fields.forEach((field) => {
@@ -159,3 +182,17 @@ const isFormInvalid = () => {
 
   return false;
 };
+
+submitButton.disabled = true;
+submitButton.addEventListener("click", () => {
+  try {
+    validate();
+    //Si es válido, esta será la info que se enviara a la base de datos.
+    alert(JSON.stringify(person));
+  } catch (error) {
+    //Si es inválido, se mostrará una alerta con el campo inválido.
+    alert(error);
+  } finally {
+    submitButton.disabled = isFormInvalid();
+  }
+});
