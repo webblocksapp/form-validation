@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validación de formulario</title>
+    <link
+      rel="stylesheet"
+      href="/libs/bootstrap-5.0.2-dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <form id="person-form" class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Primer nombre</label>
+          <input type="text" class="form-control form-field" name="firstName" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Segundo nombre</label>
+          <input
+            type="text"
+            class="form-control form-field"
+            name="secondName"
+          />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Edad</label>
+          <input type="text" class="form-control form-field" name="age" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Número fijo Bogotá</label>
+          <input type="text" class="form-control form-field" name="phone" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Ciudad</label>
+          <select type="text" class="form-select form-field" name="city">
+            <option value="">Seleccione una ciudad</option>
+            <option>Bogotá</option>
+            <option>Medellín</option>
+            <option>Cali</option>
+          </select>
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="/libs/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+  <script src="/utils/max.js"></script>
+  <script src="/utils/min.js"></script>
+  <script src="/utils/number.js"></script>
+  <script src="/utils/phone.js"></script>
+  <script src="/utils/required.js"></script>
+  <script src="/utils/singleWorld.js"></script>
+  <script src="/utils/cleanErrorMessage.js"></script>
+  <script src="/utils/isFormInvalid.js"></script>
+  <script src="/utils/printFieldErrorMessage.js"></script>
+  <script src="/utils/setFieldValue.js"></script>
+  <script src="/utils/validateField.js"></script>
+  <script src="/utils/validate.js"></script>
+  <script src="index.js"></script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="/libs/bootstrap-5.0.2-dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h1>Login</h1>
+      <form id="login-form" class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control form-field" name="email" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control form-field"
+            name="password"
+          />
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="/libs/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+  <script src="/utils/required.js"></script>
+  <script src="/utils/email.js"></script>
+  <script src="/utils/cleanErrorMessage.js"></script>
+  <script src="/utils/isFormInvalid.js"></script>
+  <script src="/utils/printFieldErrorMessage.js"></script>
+  <script src="/utils/validateField.js"></script>
+  <script src="/utils/setFieldValue.js"></script>
+  <script src="/utils/validate.js"></script>
+  <script src="index.js"></script>
+</html>
